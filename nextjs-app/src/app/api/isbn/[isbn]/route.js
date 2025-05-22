@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { NextResponse } from 'next/server';
 
 export async function GET(request, { params }) {
@@ -67,7 +69,7 @@ export async function GET(request, { params }) {
 
   } catch (error) {
     // Network errors or other fetch-related issues
-    console.error('Fetch error:', error);
+    console.error('Fetch error:', error); // console.error is available in Edge Runtime
     return NextResponse.json({ error: 'Failed to fetch data from Open Library API. Check network connectivity.' }, { status: 500 });
   }
 }
